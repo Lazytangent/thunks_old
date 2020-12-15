@@ -1,76 +1,66 @@
+# Redux + Thunk
 
-# Create React App Template
+## The WWWWW&H for Thunks
 
-A no-frills template from which to create React applications with
-[Create React App](https://github.com/facebook/create-react-app).
+### Who?
 
-```sh
-npx create-react-app my-app --template @appacademy/react-v17 --use-npm
-```
+-   **Who** uses thunks?
 
-## Available Scripts
+    -   You!
 
-In the project directory, you can run:
+-   **What** is a thunk?
 
-### `npm start`
+    -   Besides being a fun way to make your English teacher super mad, a thunk is...
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+        `A subroutine used to inject an additional calculation into another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or to insert operations at the beginning or end of the other subroutine.`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    -   In non-brainmelting terms...
 
-### `npm test`
+        `A subprocess that runs and either waits to give its result when it's good and ready, or a subprocess that inserts itself into an already established process.`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    -   In terms of Redux...
 
-### `npm run build`
+        `A way for us to inject an async process into the Redux flow so it can eventually update our Redux store.`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   **When** should I use a thunk?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    -   The usual case is going to be when you need to make a fetch to some API, be it your own backend, or some 3rd party. Remember Express, we're about to add all that knowledge back in!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   **Where** does a thunk occur in the Redux flow?
 
-### `npm run eject`
+    -   Great question! Let's take a look at the old flow.
+        ![redux](./redux.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+        1. The user has an `interaction` with our Application
+        2. That `interaction` sends an `action`, which as a `type` and `payload`, to the `Dispatcher`
+        3. The `Dispatcher` sends `action` to the `Reducer`
+        4. The `Reducer` takes the in the current `state` and `action`. It looks at all of its switch cases to see if the `action`'s `type` has a match.
+            - If a match is found the it follows case of what to do with the `action`'s `payload` and/or current `state`
+            - If not, it's best practice to return the current `state`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    -   So where do thunks come in?
+        ![redux with thunk](./redux-thunk.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+        1. The user has an `interaction` with our Application
+        2. That `interaction` sends an `ThunkActionCreator`, which is a function (more on this in a bit), to the `Dispatcher`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+        3. **The `Thunk Middleware` realizes that this is a function and NOT an action. It will then run the funciton and when it's good and ready, it will dispatch an actual `action.`**
 
-## Learn More
+        4. The `Dispatcher` sends `action` to the `Reducer`
+        5. The `Reducer` takes the in the current `state` and `action`. It looks at all of its switch cases to see if the `action`'s `type` has a match.
+            - If a match is found the it follows case of what to do with the `action`'s `payload` and/or current `state`
+            - If not, it's best practice to return the current `state`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   **WHY?????**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    -   It just seems like we're adding an extra step into something that's already complex. Can't I just make my fetch calls in my component and then when that call is done I can update my redux store?
+        ______
 
-### Code Splitting
+        `While it's possible to make these API calls from your components and dispatch synchronously on success, for consistency and reusability it's preferable to have the source of every change to our application state be an action creator. Thunks are a new kind of action creator that will allow you to do that.` [a/A Open](https://open.appacademy.io/learn/js-py---sep-2020-online/week-15-sep-2020-online/thunk-actions)
+        ______
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+        `In React / Redux, thunks enable us to avoid directly causing side effects in our actions, action creators, or components. Instead, anything impure will be wrapped in a thunk. Later, that thunk will be invoked by middleware to actually cause the effect. By transferring our side effects to running at a single point of the Redux loop (at the middleware level), the rest of our app stays relatively pure. Pure functions and components are easier to reason about, test, maintain, extend, and reuse.`
+        [Medium Article](https://medium.com/fullstack-academy/thunks-in-redux-the-basics-85e538a3fe60#:~:text=Thunks%20in%20React%20%26%20Redux,be%20wrapped%20in%20a%20thunk.)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **HOW?**
+    Let's DO THIS!
