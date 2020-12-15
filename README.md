@@ -1,5 +1,9 @@
 # Redux + Thunk
 
+```bash
+  git clone https://github.com/mylo-james/thunks.git && cd thunks && npm install 
+```
+
 ## The WWWWW&H for Thunks
 
 ### Who?
