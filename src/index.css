@@ -1,1 +1,43 @@
 /* TODO Add site wide styles */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: green;
+}
+h2 {
+    color: white;
+}
+img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+
+button {
+    margin: 0;
+    padding: 5px;
+    background: white;
+    border: none;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.main {
+    margin: 25vh auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 50vw;
+    height: 60vh;
+    background-color: darkgreen;
+    border: black 5px solid;
+    border-radius: 5px;
+}

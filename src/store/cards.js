@@ -1,17 +1,20 @@
 // Action Type Definitions
-const SET_RANDOM_PHOTO = 'photos/SET_RANDOM_PHOTO';
+const SET_RANDOM_CARD = 'photos/SET_RANDOM_PHOTO';
 
 //Action Creators
-const setRandomPhoto = (payload) => ({
-    type: SET_RANDOM_PHOTO,
+const setRandomCard = (payload) => ({
+    type: SET_RANDOM_CARD,
     payload,
 });
 
 //Thunks
-export const getRandomPhoto = (id) => async (dispatch) => {
-    const res = await fetch(`/api/users/house/${id}`);
-    const photo = await res.json();
-    dispatch(setRandomPhoto(photo));
+export const getRandomCard = (id) => async (dispatch) => {
+    const res = await fetch(
+        `https://deckofcardsapi.com/api/deck/new/draw/?count=1`
+    );
+    const { cards } = await res.json();
+    console.log(cards);
+    dispatch(setRandomCard(cards));
 };
 
 // Define an intial state
@@ -27,7 +30,7 @@ const initState = [
 //Reducer
 const userReducer = (state = initState, action) => {
     switch (action.type) {
-        case SET_RANDOM_PHOTO:
+        case SET_RANDOM_CARD:
             return action.payload;
         default:
             return state;
