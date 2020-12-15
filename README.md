@@ -18,7 +18,7 @@
 
         `A subroutine used to inject an additional calculation into another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or to insert operations at the beginning or end of the other subroutine.`
 
-    -   In non-brainmelting terms...
+    -   In non-brain-melting terms...
 
         `A subprocess that runs and either waits to give its result when it's good and ready, or a subprocess that inserts itself into an already established process.`
 
@@ -48,7 +48,7 @@
         1. The user has an `interaction` with our Application
         2. That `interaction` sends a `ThunkActionCreator`, which is a function (more on this in a bit), to the `Dispatcher`.
 
-        3. **The `Thunk Middleware` realizes that this is a function and NOT an action. It will then run the funciton, and when it's good and ready, it will dispatch an actual `action.` (POJO)**
+        3. **The `Thunk Middleware` realizes that this is a function and NOT an action. It will then run the function, and when it's good and ready, it will dispatch an actual `action.` (POJO)**
 
         4. The `Dispatcher` sends an `action` to the `Reducer`
         5. The `Reducer` takes in the current `state` and `action`. It looks at all of its switch cases to see if the `action`'s `type` has a match.
@@ -94,7 +94,7 @@
     8.  Let's test it here to see if our console.log shows up.
     9.  Let's write the `ThunkActionCreator`.
 
-        -   A `ThunkActionCreator` is a funciton that intakes the params used at invocation. It then returns another function that intakes `dispatch`. It should eventually dispatch an action (POJO).
+        -   A `ThunkActionCreator` is a function that intakes the params used at invocation. It then returns another function that intakes `dispatch`. It should eventually dispatch an action (POJO).
 
             ```js
             const thunkAction = (param1, param2) => async (dispatch) => {
