@@ -1,7 +1,7 @@
 # Redux + Thunk
 
 ```bash
-  git clone https://github.com/mylo-james/thunks.git && cd thunks && npm install 
+  git clone https://github.com/mylo-james/thunks.git && cd thunks && npm install
 ```
 
 ## The WWWWW&H for Thunks
@@ -103,3 +103,5 @@
                 dispatch(definedAction(thing));
             };
             ```
+
+API Fetch `https://deckofcardsapi.com/api/deck/new/draw/?count=1`
