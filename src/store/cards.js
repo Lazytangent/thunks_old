@@ -7,7 +7,7 @@ const setRandomCard = (payload) => ({
     payload,
 });
 
-//Thunks
+//Thunk Action Creators
 export const getRandomCard = (id) => async (dispatch) => {
     const res = await fetch(
         `https://deckofcardsapi.com/api/deck/new/draw/?count=1`
@@ -20,10 +20,14 @@ export const getRandomCard = (id) => async (dispatch) => {
 // Define an intial state
 const initState = [
     {
-        id: 0,
-        name: 'Test User',
-        houseId: 4,
-        teacher: false,
+        code: 'AH',
+        image: 'https://deckofcardsapi.com/static/img/AH.png',
+        images: {
+            svg: 'https://deckofcardsapi.com/static/img/AH.svg',
+            png: 'https://deckofcardsapi.com/static/img/AH.png',
+        },
+        value: 'ACE',
+        suit: 'HEARTS',
     },
 ];
 

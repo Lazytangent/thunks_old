@@ -9,13 +9,7 @@ function App() {
         <div className='main'>
             <h2>Pick a card, any card</h2>
             {cards.map((card) => (
-                <img
-                    alt='random'
-                    src={
-                        card.image ||
-                        'https://deckofcardsapi.com/static/img/AH.png'
-                    }
-                />
+                <img alt='random' src={card.image} />
             ))}
 
             <button onClick={() => dispatch(getRandomCard())}>
