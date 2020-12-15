@@ -54,13 +54,48 @@
 -   **WHY?????**
 
     -   It just seems like we're adding an extra step into something that's already complex. Can't I just make my fetch calls in my component and then when that call is done I can update my redux store?
-        ______
+
+        ***
 
         `While it's possible to make these API calls from your components and dispatch synchronously on success, for consistency and reusability it's preferable to have the source of every change to our application state be an action creator. Thunks are a new kind of action creator that will allow you to do that.` [a/A Open](https://open.appacademy.io/learn/js-py---sep-2020-online/week-15-sep-2020-online/thunk-actions)
-        ______
+
+        ***
 
         `In React / Redux, thunks enable us to avoid directly causing side effects in our actions, action creators, or components. Instead, anything impure will be wrapped in a thunk. Later, that thunk will be invoked by middleware to actually cause the effect. By transferring our side effects to running at a single point of the Redux loop (at the middleware level), the rest of our app stays relatively pure. Pure functions and components are easier to reason about, test, maintain, extend, and reuse.`
         [Medium Article](https://medium.com/fullstack-academy/thunks-in-redux-the-basics-85e538a3fe60#:~:text=Thunks%20in%20React%20%26%20Redux,be%20wrapped%20in%20a%20thunk.)
 
-- **HOW?**
-    Let's DO THIS!
+-   **HOW?**
+    Let's DO THIS! Let's take a look at the App first, just to see what it does, and such and so forth.
+
+    1.  Let's install the 'redux-thunk' middleware.
+
+        -   It basically looks like this.
+
+            ```js
+            const thunk = ({ dispatch, getState }) => (next) => (action) => {
+                if (typeof action === 'function') {
+                    return action(dispatch, getState);
+                }
+                return next(action);
+            };
+            ```
+
+    2.  Let's import redux-thunk into our store
+    3.  Now we need to add this middleware to our applyMiddleware()
+    4.  Let's go to store/card.js and let's define a ThunkActionCreator.
+        -   For now, let's just have it console.log('Hello from Thunk')
+    5.  Head on over to App.js and let's change the import from the Action Creator to the ThunkActionCreator that we just made.
+    6.  This means that we'll have to remove it from our dispatch.
+    7.  Let's clean up the file.
+    8.  Let's test it here to see if our console.log shows up.
+    9.  Let's start write the Thunk Action Creator.
+
+        -   A Thunk/Action Creator is a funciton that intakes params used at invocation, that then returns another function that intakes dispatch. It should eventually dispatch an action (POJO).
+
+            ```js
+            const thunkAction = (param1, param2) => async (dispatch) => {
+                const res = await fetch('api/something');
+                const { thing } = await res.json();
+                dispatch(definedAction(thing));
+            };
+            ```

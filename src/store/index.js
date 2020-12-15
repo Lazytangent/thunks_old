@@ -2,7 +2,7 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 
 //Middleware Imports
-/* TO DO */
+/*************  TO DO #2 ******************/
 
 //Reducers
 import card from './card';
@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Apply middleware
-/* TO DO */
+/*************  TO DO #3 ******************/
 const storeEnhancer = composeEnhancers(applyMiddleware());
 
 // Define Store

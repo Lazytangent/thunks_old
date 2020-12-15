@@ -8,7 +8,7 @@ export const setRandomCard = (payload) => ({
 });
 
 //Thunk Action Creators
-/* TO DO */
+/*************  TO DO #4 & #9 ******************/
 
 // Define an intial state
 const initState = {
