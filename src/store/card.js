@@ -1,5 +1,5 @@
 // Action Type Definitions
-const SET_RANDOM_CARD = 'photos/SET_RANDOM_PHOTO';
+const SET_RANDOM_CARD = 'photos/SET_RANDOM_CARD';
 
 //Action Creators
 export const setRandomCard = (payload) => ({
