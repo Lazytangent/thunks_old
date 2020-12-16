@@ -10,7 +10,7 @@ export const setRandomCard = (payload) => ({
 //Thunk Action Creators
 /*************  TO DO #4 & #9 ******************/
 
-// Define an intial state
+// Define an initial state
 const initState = {
     code: 'AH',
     image: 'https://deckofcardsapi.com/static/img/AH.png',
