@@ -86,13 +86,12 @@
 
     2.  Let's import `redux-thunk` into our store
     3.  Now we need to add this middleware to our `applyMiddleware()`
-    4.  Let's go to `store/card.js` and let's define a `ThunkActionCreator`.
-        -   For now, let's just have it console.log('Hello from Thunk')
-    5.  Head on over to App.js and let's change the import from the `ActionCreator` to the `ThunkActionCreator` that we just made.
+    4.  Let's go to `store/card.js` and let's look at the structure of a `ThunkActionCreator`.
+    5.  Head on over to App.js and let's change the import from the `ActionCreator` to the `ThunkActionCreator`.
     6.  This means that we'll have to remove it from our dispatch.
-    7.  Let's clean up the file.
-    8.  Let's test it here to see if our console.log shows up.
-    9.  Let's write the `ThunkActionCreator`.
+    7.  Let's move all update logic to the ThunkActionCreator
+    8.  Let's test it. Did it break?
+    9.  Let's write the `ThunkActionCreator` with `fetch`.
 
         -   A `ThunkActionCreator` is a function that intakes the params used at invocation. It then returns another function that intakes `dispatch`. It should eventually dispatch an action (POJO).
 
