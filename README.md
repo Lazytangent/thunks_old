@@ -28,6 +28,11 @@
 
     `A way for us to inject an async process into the Redux flow so it can eventually update our Redux store.`
 
+  - An article recommended by the people who brought us the `redux-thunk`
+      package: https://daveceddia.com/what-is-a-thunk/
+
+  - To read more on the `redux-thunk` middleware, see their repo: https://github.com/reduxjs/redux-thunk
+
 ### When
 
 - **When** should I use a thunk?
@@ -113,4 +118,7 @@
             };
             ```
 
-API Fetch `https://deckofcardsapi.com/api/deck/new/draw/?count=1`
+API Fetch
+```
+https://deckofcardsapi.com/api/deck/new/draw/?count=1
+```
