@@ -1,7 +1,7 @@
 # Redux + Thunk
 
 ```bash
-  git clone https://github.com/mylo-james/thunks.git && cd thunks && npm install
+git clone https://github.com/Lazytangent/thunks.git && cd thunks && npm install
 ```
 
 ## The WWWWW&H for Thunks
@@ -18,15 +18,15 @@
 
   - Besides being a fun way to make your English teacher super mad, a thunk is..
 
-    `A subroutine used to inject an additional calculation into another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or to insert operations at the beginning or end of the other subroutine.`
+    > A subroutine used to inject an additional calculation into another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or to insert operations at the beginning or end of the other subroutine.
 
   - In non-brain-melting terms...
 
-    `A subprocess that runs and either waits to give its result when it's good and ready, or a subprocess that inserts itself into an already established process.`
+    > A subprocess that runs and either waits to give its result when it's good and ready, or a subprocess that inserts itself into an already established process.
 
   - In terms of Redux...
 
-    `A way for us to inject an async process into the Redux flow so it can eventually update our Redux store.`
+    > A way for us to inject an async process into the Redux flow so it can eventually update our Redux store.
 
   - An article recommended by the people who brought us the `redux-thunk`
       package: https://daveceddia.com/what-is-a-thunk/
