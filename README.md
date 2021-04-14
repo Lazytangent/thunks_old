@@ -1,7 +1,7 @@
 # Redux + Thunk
 
 ```bash
-  git clone https://github.com/mylo-james/thunks.git && cd thunks && npm install
+git clone https://github.com/Lazytangent/thunks.git && cd thunks && npm install
 ```
 
 ## The WWWWW&H for Thunks
@@ -18,15 +18,15 @@
 
   - Besides being a fun way to make your English teacher super mad, a thunk is..
 
-    `A subroutine used to inject an additional calculation into another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or to insert operations at the beginning or end of the other subroutine.`
+    > A subroutine used to inject an additional calculation into another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or to insert operations at the beginning or end of the other subroutine.
 
   - In non-brain-melting terms...
 
-    `A subprocess that runs and either waits to give its result when it's good and ready, or a subprocess that inserts itself into an already established process.`
+    > A subprocess that runs and either waits to give its result when it's good and ready, or a subprocess that inserts itself into an already established process.
 
   - In terms of Redux...
 
-    `A way for us to inject an async process into the Redux flow so it can eventually update our Redux store.`
+    > A way for us to inject an async process into the Redux flow so it can eventually update our Redux store.
 
   - An article recommended by the people who brought us the `redux-thunk`
       package: https://daveceddia.com/what-is-a-thunk/
@@ -74,11 +74,14 @@
 
     ***
 
-    `While it's possible to make these API calls from your components and dispatch synchronously on success, for consistency and reusability it's preferable to have the source of every change to our application state be an action creator. Thunks are a new kind of action creator that will allow you to do that.` [a/A Open](https://open.appacademy.io/learn/js-py---sep-2020-online/week-15-sep-2020-online/thunk-actions)
+    > While it's possible to make these API calls from your components and dispatch synchronously on success, for consistency and reusability it's preferable to have the source of every change to our application state be an action creator. Thunks are a new kind of action creator that will allow you to do that.
+    >
+    > [a/A Open](https://open.appacademy.io/learn/js-py---sep-2020-online/week-15-sep-2020-online/thunk-actions)
 
     ***
 
     > In React / Redux, thunks enable us to avoid directly causing side effects in our actions, action creators, or components. Instead, anything impure will be wrapped in a thunk. Later, that thunk will be invoked by middleware to actually cause the effect. By transferring our side effects to running at a single point of the Redux loop (at the middleware level), the rest of our app stays relatively pure. Pure functions and components are easier to reason about, test, maintain, extend, and reuse.
+    >
     > [Medium Article](https://medium.com/fullstack-academy/thunks-in-redux-the-basics-85e538a3fe60#:~:text=Thunks%20in%20React%20%26%20Redux,be%20wrapped%20in%20a%20thunk.)
 
 ### HOW
