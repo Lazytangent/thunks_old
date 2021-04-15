@@ -76,3 +76,20 @@ if (process.env.NODE_ENV === 'production') {
     enhancer = composeEnhancers(applyMiddleware(thunk, logger));
 }
 ```
+
+## 4. Take a look of the Thunk Creator in `store/card.js`
+
+Currently, the Thunk Creator in question looks like this:
+```js
+export const getRandomCard = () => (dispatch) => {
+    // Can use params from first and second function
+    // First is any params you need when you call the Thunk Creator
+    // The second is always dispatch
+    // Usually this is async if you want to fetch
+    /* A Thunk Creator is a function that returns another function that 
+    will eventually/hopefully dispatch an action. */
+};
+```
+
+## 5. Let's change the stuff from an Action Creator to the Thunk Creator in
+`App.js`
