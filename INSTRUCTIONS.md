@@ -91,5 +91,30 @@ export const getRandomCard = () => (dispatch) => {
 };
 ```
 
-## 5. Let's change the stuff from an Action Creator to the Thunk Creator in
-`App.js`
+## 5. Let's change the import in `App.js`
+
+First, the import. Right now, we have the following in `App.js`:
+```js
+import { setRandomCard } from './store/card';
+```
+
+We want:
+```js
+import { getRandomCard } from './store/card';
+```
+
+## 6. Change the dispatch to match our import
+
+Right now, the dispatch is still dispatching the Action Creator.
+```js
+<button onClick={() => dispatch(setRandomCard(cards[randInt]))}>
+    Get Random Card
+</button>
+```
+
+Let's change it so we dispatch our Thunk Creator on the button click instead.
+```js
+<button onClick={() => dispatch(getRandomCard())}>
+    Get Random Card
+</button>
+```
