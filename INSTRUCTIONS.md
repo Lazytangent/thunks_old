@@ -118,3 +118,39 @@ Let's change it so we dispatch our Thunk Creator on the button click instead.
     Get Random Card
 </button>
 ```
+
+## 7. Move all the logic to the Thunk Creator
+
+Now, we'll move all the things that were handling the logic of our random card
+generator into our Thunk Creator to simulate the extraction of the business
+logic from the rendering logic.
+
+So these two lines will be moved into `store/card.js`:
+```js
+import { cards } from './cards.json';
+
+// ... some code
+
+const randInt = () => Math.floor(Math.random() * cards.length);
+```
+
+And in `store/card.js`, we'll have the import at the very top of the file and
+the `randInt` function in our Thunk.
+
+```js
+import { cards } from './cards.json';
+
+// ... skip some code
+
+export const getRandomCard = () => (dispatch) => {
+    const randInt = () => Math.floor(Math.random() * cards.length);
+    // Also, we'll add the dispatch that we had in App.js
+    dispatch(setRandomCard(cards[randInt()]));
+};
+```
+
+## 8. Test it. Does it still work as intended?
+
+Do the stuff in the browser. Is the functionality still the same?
+
+## 9. Rewrite the Thunk Creator with `fetch`
