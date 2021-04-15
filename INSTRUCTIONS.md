@@ -25,6 +25,8 @@ else, and just dispatch the thunk creator from our component instead. This
 allows for cleaner, DRY-er code while also separating our concerns, making it
 easier to test and ensure our code, and in turn, our application works.
 
+### Steps
+
 In this lecture, we will:
 
 1. Install the `redux-thunk` middleware.
@@ -38,3 +40,39 @@ In this lecture, we will:
 8. Test it. Did it break?
 9. Let's now rewrite the Thunk Creator with `fetch` and have it actually do
    thunk things.
+
+## 1. Install `redux-thunk`
+
+It can't get easier than this!
+
+```sh
+npm install redux-thunk
+```
+
+## 2. Import `redux-thunk`
+
+This is pretty easy, too.
+
+```js
+// src/store/index.js
+// ... other imports
+import thunk from 'redux-thunk';
+
+// ... other code
+```
+
+## 3. Add it to our store as a middleware function
+
+```js
+// ... imports and reducer code
+
+let enhancer;
+
+if (process.env.NODE_ENV === 'production') {
+    enhancer = applyMiddleware(thunk);
+} else {
+    const composeEnhancers =
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    enhancer = composeEnhancers(applyMiddleware(thunk, logger));
+}
+```
