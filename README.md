@@ -31,6 +31,9 @@ git clone https://github.com/Lazytangent/thunks.git && cd thunks && npm install
   - An article recommended by the people who brought us the `redux-thunk`
       package: https://daveceddia.com/what-is-a-thunk/
 
+      > It's a special (and uncommon) name for a function that's returned by
+      > another.
+
   - To read more on the `redux-thunk` middleware, see their repo: https://github.com/reduxjs/redux-thunk
 
 ### When
