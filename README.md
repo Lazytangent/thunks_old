@@ -125,3 +125,8 @@ API Fetch
 ```
 https://deckofcardsapi.com/api/deck/new/draw/?count=1
 ```
+
+## Credits
+
+[Mylo](https://github.com/mylo-james)
+[The Original Repo](https://github.com/mylo-james/thunks)
