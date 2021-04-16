@@ -154,3 +154,17 @@ export const getRandomCard = () => (dispatch) => {
 Do the stuff in the browser. Is the functionality still the same?
 
 ## 9. Rewrite the Thunk Creator with `fetch`
+
+Now, we'll integrate a `fetch` call to our Thunk.
+
+```js
+export const getRandomCard = () => async (dispatch) => {
+    const res = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1');
+    const data = await res.json();
+    // const { cards: [card] } = await res.json();
+    dispatch(setRandomCard(data.cards[0]));
+    // dispatch(setRandomCard(card));
+};
+```
+
+## 10. Good time to check if it still works
