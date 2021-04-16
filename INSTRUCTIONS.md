@@ -168,3 +168,5 @@ export const getRandomCard = () => async (dispatch) => {
 ```
 
 ## 10. Good time to check if it still works
+
+Seriously. Check it.
