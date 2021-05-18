@@ -31,8 +31,14 @@ git clone https://github.com/Lazytangent/thunks.git && cd thunks && npm install
   - An article recommended by the people who brought us the `redux-thunk`
       package: https://daveceddia.com/what-is-a-thunk/
 
-      > It's a special (and uncommon) name for a function that's returned by
-      > another.
+    > It's a special (and uncommon) name for a function that's returned by
+    > another.
+
+  - Wikipedia thinks...
+
+    > The term originated as a humorous, incorrect past pariciple of "think".
+    > That is, a "thunk value" becomes available after its calculation routine
+    > is thought through, or executed.
 
   - To read more on the `redux-thunk` middleware, see their repo: https://github.com/reduxjs/redux-thunk
 
