@@ -4,13 +4,7 @@
 git clone https://github.com/Lazytangent/thunks.git && cd thunks && npm install
 ```
 
-## The WWWWW&H for Thunks
-
-### Who?
-
-- **Who** uses thunks?
-
-  - You!
+## What is a Thunk?
 
 ### What?
 
@@ -36,7 +30,7 @@ git clone https://github.com/Lazytangent/thunks.git && cd thunks && npm install
 
   - Wikipedia thinks...
 
-    > The term originated as a humorous, incorrect past pariciple of "think".
+    > The term originated as a humorous, incorrect past participle of "think".
     > That is, a "thunk value" becomes available after its calculation routine
     > is thought through, or executed.
 
